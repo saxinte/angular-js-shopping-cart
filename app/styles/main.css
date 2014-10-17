@@ -1,0 +1,161 @@
+body {
+	overflow-y:scroll;
+}
+a:hover {
+	text-decoration: none;
+}
+.page-header {
+	margin-top:20px;
+	padding-bottom: 0;
+}
+.text-blue {
+	color:#428BCA;
+}
+.thumbnail h3 {
+	margin-top: 0;
+}
+.thumbnail .badge {
+	float: right;
+	margin:0 0 2px 3px;
+}
+.thumbnail {
+	height:355px;
+	-webkit-transition:none;
+	   -moz-transition:none;
+	    -ms-transition:none;
+			transition:none;
+}
+.thumbnail img {
+	max-width: 70%;
+}
+.thumbnail h3 {
+	display:block;
+	overflow:hidden;
+	max-height: 53px;
+	font-size:16px;
+	margin-bottom:8px;
+}
+.thumbnail p {
+	display:block;
+	overflow:hidden;
+	font-size:14px;
+	max-height: 80px;
+	margin-bottom:8px;
+}
+.list-group-item {
+	padding:8px 14px;
+}
+.list-group-item label,
+.list-group-item input {
+	display:block;
+	cursor:pointer;
+}
+.list-group-item input {
+	float:left;
+	margin:4px 10px 0 0;
+}
+.list-group-item .form-control {
+	float:none;
+}
+.highlight {
+	padding:2px 5px;
+	background-color:#FFF;
+	border:1px solid #faebcc;
+}
+.tees-list {
+	position:relative;
+	overflow:hidden;
+	padding:0 8px;
+	min-height:200px;
+}
+.tees-list .tee-item {
+	float:left;
+	width:25%;
+	padding-left:8px;
+	padding-right:8px;
+}
+.tees-list .tee-item:nth-of-type(4n+1) {
+	clear:left;
+}
+.is-loading:after {
+	position:absolute;
+	display:block;
+	content:"Loading datas...";
+	text-align:center;
+	font-size:34px;
+	padding-top:50px;
+	color:#428BCA;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background:url('../images/loader.gif') center 120px no-repeat #FFF;
+	z-index:1;
+}
+.shop-cart {
+	float:right;
+	min-width: 20%;
+}
+.tee-shirt-container {
+	display: block;
+	overflow:hidden;
+	padding: 10px;
+	min-height: 200px;
+	margin-bottom: 20px;
+	line-height: 1.4;
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	border-radius: 4px;
+}
+.tee-shirt-container .picture {
+	float:left;
+	margin-right:20px;
+}
+.tee-shirt-container .title,
+.tee-shirt-container .sizes,
+.tee-shirt-container .desc {
+	display:block;
+	margin-bottom:5px;
+}
+.tee-shirt-container .title {
+	font-size:32px;
+	margin-bottom:10px;
+}
+.tee-shirt-container .dropdown {
+	display:inline-block;
+	vertical-align: middle;
+	font-size:26px;
+	margin-right:20px;
+}
+.tee-shirt-container .desc {
+	overflow:hidden;
+	padding:10px;
+	border-top:1px dotted #989898;
+	font-size:16px;
+}
+.tee-shirt-container .price {
+	display:inline-block;
+	vertical-align: middle;
+	margin-right:20px;
+	padding:5px 20px;
+	line-height:22px;
+	font-size:16px;
+	border:1px dotted #989898;
+}
+.shopping-list {
+	margin-bottom:0;
+}
+.shopping-list .picture {
+	width:15%;
+	height:auto;
+	margin-right:10px;
+}
+.table .head th {
+	border-bottom-width:1px;
+}
+.table .valign-middle {
+	vertical-align: middle;
+}
+.table .align-right {
+	text-align: right;
+}

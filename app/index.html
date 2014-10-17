@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<title>AngularJS Project</title>
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body ng-app="myApp">
+
+	<div class="container">
+	
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="page-header clearfix" ng-controller="ShoppingBagController as ShoppingBag">
+					<a href="#/shopping-bag" class="panel panel-primary shop-cart">
+						<div class="panel-heading">
+							<h3 class="panel-title">Shopping Bag</h3>
+						</div>
+						<div class="panel-body">
+							{{ShoppingBag.items.length}} item(s) added
+						</div>
+					</a>
+					<h1 class="text-blue"><a href="#/home">American Apparel</a> <small>Made in the USA - Sweatshop Free</small></h1>
+				</div>
+			</div>	
+		</div>
+
+		<div ng-view></div>
+		
+	</div>
+
+	<script src="scripts/vendor/angular.min.js"></script>
+	<script src="scripts/vendor/angular-route.min.js"></script>
+	<script src="scripts/app.js"></script>
+	
+	<!-- Controllers -->
+	<script src="scripts/controllers/products-controller.js"></script>
+	<script src="scripts/controllers/tee-shirt-controller.js"></script>
+	<script src="scripts/controllers/shopping-bag-controller.js"></script>
+	<script src="scripts/controllers/shopping-list-controller.js"></script>
+	
+	<!-- Services -->
+	<script src="scripts/services/http-service.js"></script>
+	
+	<!-- Factories -->
+	<script src="scripts/factories/selectors-factory.js"></script>
+	<script src="scripts/factories/tees-factory.js"></script>
+	<script src="scripts/factories/shopping-bag-factory.js"></script>
+	
+	<!-- Directives -->
+	<script src="scripts/directives/size-directive.js"></script>
+	<script src="scripts/directives/tee-directive.js"></script>
+	
+	<!-- Filters -->
+	<script src="scripts/filters/sort-filter.js"></script>
+	<script src="scripts/filters/length-filter.js"></script>
+	<script src="scripts/filters/tee-sizes-filters.js"></script>
+	<script src="scripts/filters/capitalize-filter.js"></script>
+	<script src="scripts/filters/sum-filter.js"></script>
+	
+</body>
+</html>

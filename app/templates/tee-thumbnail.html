@@ -1,0 +1,8 @@
+<a href="#/tee-shirt/{{tee.uid}}/{{Products.sizeFilter}}" class="thumbnail">
+	<img ng-src="{{tee.image}}" alt="">
+	<div class="caption">
+		<span ng-repeat="teeSize in tee.sizes" class="badge">{{teeSize}}</span>
+		<h3>{{tee.name}}</h3>
+		<p>{{tee.text}}</p>
+	</div>
+</a>

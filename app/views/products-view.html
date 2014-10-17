@@ -1,0 +1,52 @@
+<div class="row">
+
+	<div class="col-xs-12" ng-show="Products.errorMessage">
+		<div class="alert alert-danger">{{Products.errorMessage}}</div>
+	</div>
+
+	<div class="col-xs-3" ng-hide="Products.errorMessage">
+		
+		<div class="list-group">
+			<span class="list-group-item">Filter by name</span>
+			<div class="list-group-item">
+				<input type="text" class="form-control" ng-model="queryFilter">
+			</div>
+		</div>
+
+		<div class="list-group">
+
+			<span class="list-group-item">Filter by size ({{Products.teeSizes.length}} found)</span>
+
+			<span class="list-group-item">
+				<span class="badge">{{ Products.tees | filter:queryFilter | lengthFilter }}</span>
+				<input type="radio" name="size-filter" ng-model="Products.sizeFilter" id="all-sizes" value="All">
+				<label for="all-sizes">All</label>
+			</span>
+
+			<span class="list-group-item" ng-repeat="size in Products.teeSizes | SortFilter">
+				<span class="badge">{{ Products.tees | filter:queryFilter | TeeSizesFilter:size | lengthFilter }}</span>
+				<input type="radio" name="size-filter" ng-model="Products.sizeFilter" id="{{size}}" value="{{size}}">
+				<label for="{{size}}">{{size}}</label>
+			</span>
+
+		</div>
+		
+	</div>
+
+	<div class="col-xs-9" ng-hide="Products.errorMessage">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="alert alert-warning">Your search: Size: <b class="highlight">{{Products.sizeFilter}}</b> - <b>{{ Products.tees | filter:queryFilter | TeeSizesFilter:Products.sizeFilter | lengthFilter }}</b> found(s)</div>
+				<div></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="tees-list is-loading" ng-class="{'is-loading':!hideLoader}">
+				<div class="tee-item" ng-repeat="tee in Products.tees | orderBy:'name' | TeeSizesFilter:Products.sizeFilter | filter:queryFilter">
+					<span tee-directive></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
