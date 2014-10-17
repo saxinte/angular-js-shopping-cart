@@ -12,7 +12,7 @@ name: TeeSizesFilter
 
 			var filtered = [];
 
-			if(size === this.defaultSizeText){ // is it allowed?
+			if(size === this.defaultSize){ // is it allowed?
 				return tees;
 			}
 

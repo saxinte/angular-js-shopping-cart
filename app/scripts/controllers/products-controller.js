@@ -52,7 +52,10 @@ name: ProductsController
 
 		// default models value
 		this.sizeFilter = SelectorsFactory.getElement('#all-sizes').value;
-		$scope.defaultSizeText = this.sizeFilter; // is it allowed?
+		this.priceFilter = SelectorsFactory.getElement('#all-prices').value;
+
+		$scope.defaultSize = this.sizeFilter; // is it allowed?
+		$scope.defaultPrice = this.priceFilter; // is it allowed?
 
 		this.tees = [];
 		this.teeSizes = [];

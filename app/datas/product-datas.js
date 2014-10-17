@@ -13,7 +13,7 @@
     "name": "Unisex Thick Knit Baseball Jersey",
     "colors": ["black", "yellow", "blue"],
     "text": "Classic baseball tee constructed from sturdy thick-knit jersey, featuring buttons down front and short sleeves. ",
-    "price": 46.00,
+    "price": 51.00,
     "uid": 14826
 },
 {
@@ -49,7 +49,7 @@
     "name": "Rib U-Neck Tank",
     "colors": ["red", "cyan", "green"],
     "text": "Similar to the 2x1 Rib Boy Beater, but with a generous, daring neckline and added length.",
-    "price": 12.00,
+    "price": 10.00,
     "uid": 8979
 },
 {
@@ -58,7 +58,7 @@
     "name": "Rib Boy Beater Tank",
     "colors": ["black", "white", "purple"],
     "text": "Our women’s version of a classic tank style, featuring wider, textured ribbing.",
-    "price": 46,
+    "price": 46.00,
     "uid": 23
 },
 {
@@ -112,7 +112,7 @@
     "name": "Unisex Sheer Jersey Short Sleeve Deep V-Neck",
     "colors": ["grey", "pink", "blue"],
     "text": "A comfortable T-shirt that features a stylish, deeper cut neck than our traditional V-neck. ",
-    "price": 26.00,
+    "price": 79.00,
     "uid": 4715
 },
 {

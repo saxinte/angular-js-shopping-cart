@@ -19,6 +19,7 @@ a:hover {
 	margin:0 0 2px 3px;
 }
 .thumbnail {
+	position: relative;
 	height:355px;
 	-webkit-transition:none;
 	   -moz-transition:none;
@@ -41,6 +42,16 @@ a:hover {
 	font-size:14px;
 	max-height: 80px;
 	margin-bottom:8px;
+}
+.thumbnail .tee-price {
+	position:absolute;
+	top:4px;
+	right:4px;
+	padding: 0 3px;
+	color: #000;
+	font-size: 11px;
+	background: #FFF;
+	border: 1px dotted #989898;
 }
 .list-group-item {
 	padding:8px 14px;
