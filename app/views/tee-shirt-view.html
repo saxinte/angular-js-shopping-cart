@@ -3,7 +3,7 @@
 		<div class="alert alert-danger">{{Product.errorMessage}}</div>
 	</div>
 	<div class="col-xs-12" ng-hide="Product.errorMessage">
-		<div class="tee-shirt-container is-loade" ng-class="{'is-loading':!hideLoader}">
+		<div class="tee-shirt-container is-loading" ng-class="{'is-loading':!Product.hideLoader}">
 			<img class="picture" ng-src="{{Product.teeShirt.image}}" alt="">	
 			<h1 class="title">{{Product.teeShirt.name}}</h1>
 			<p class="desc">{{Product.teeShirt.text}}</p>

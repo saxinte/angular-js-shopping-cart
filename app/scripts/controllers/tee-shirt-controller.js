@@ -7,36 +7,31 @@ name: TeeShirtController
 
 	'use strict';
 
-	var TeeShirtController = function($scope, $routeParams, $timeout, TeesFactory, ShoppingBagFactory) {
+	var TeeShirtController = function($routeParams, TeesFactory, ShoppingBagFactory) {
 
 		/*
 		 * Request Handlers
 		 */
-		var _onRequestSuccess = function() {
-			_hideLoader(300);
-			_initTeeShirt();
-		};
-
-		var _onRequestError = angular.bind(this, function(status) {
-			this.errorMessage = 'Datas fetch error (code error: ' + status + ')';
-			_hideLoader(0);
-		});
-
-		var _initTeeShirt = angular.bind(this, function() {
+		var _onRequestSuccess = angular.bind(this, function() {
 			this.teeShirt = TeesFactory.getTee(this.teeShirtId);
 		});
 
-		var _init = function() {
-			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError);
-		};
+		var _onRequestError = angular.bind(this, function(status) {
+			this.errorMessage = 'Datas fetch error (code error: ' + status + ')';
+		});
 
 		/*
-		 * UX, this avoid a flashing loading overlay
+		 * Loader
          */
-		var _hideLoader = function(timeout) {
-			$timeout(function() {
-				$scope.hideLoader = true;
-			}, timeout);
+		var _hideLoader = angular.bind(this, function() {
+			this.hideLoader = true;
+		});
+
+		/*
+		 * Initialization
+         */
+		var _init = function() {
+			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError).finally(_hideLoader);
 		};
 
 		this.addItem = function(item, size, color) {
@@ -67,7 +62,7 @@ name: TeeShirtController
 
 	};
 
-	angular.module('myApp').controller('TeeShirtController', ['$scope','$routeParams', '$timeout', 'TeesFactory', 'ShoppingBagFactory', TeeShirtController]);
+	angular.module('myApp').controller('TeeShirtController', ['$routeParams', 'TeesFactory', 'ShoppingBagFactory', TeeShirtController]);
 
 })(window, document);
 

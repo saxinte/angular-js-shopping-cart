@@ -7,41 +7,33 @@ name: ProductsController
 
 	'use strict';
 
-	var ProductsController = function($scope, $q, $timeout, SelectorsFactory, TeesFactory) {
+	var ProductsController = function($scope, SelectorsFactory, TeesFactory) {
 
 		/*
 		 * Request Handlers
 		 */
-		var _onRequestSuccess = function() {
-			_hideLoader(250);
-			_updateModels();
-		};
+		var _onRequestSuccess = angular.bind(this, function() {
+			this.tees = TeesFactory.tees;
+			this.teeSizes = TeesFactory.getSizes();
+		});
 
 		var _onRequestError = angular.bind(this, function(status) {
 			this.errorMessage = 'Datas fetch error (code error: ' + status + ')';
-			_hideLoader(0);
 		});
 
 		/*
-		 * UX, this avoid a flashing loading overlay
+		 * Loader
          */
-		var _hideLoader = function(timeout) {
-			$timeout(function() {
-				$scope.hideLoader = true;
-			}, timeout);
-		};
+		var _hideLoader = angular.bind(this, function() {
+			this.hideLoader = true;
+		});
 
 		/*
 		 * Initialization
 		 */
 		var _init = function() {
-			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError);
+			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError).finally(_hideLoader);
 		};
-
-		var _updateModels = angular.bind(this, function() {
-			this.tees = TeesFactory.tees;
-			this.teeSizes = TeesFactory.getSizes();
-		});
 
 		// default models value
 		this.sizeFilter = SelectorsFactory.getElement('#all-sizes').value;
@@ -59,7 +51,7 @@ name: ProductsController
 
 	};
 
-	angular.module('myApp').controller('ProductsController', ['$scope','$q','$timeout', 'SelectorsFactory', 'TeesFactory', ProductsController]);
+	angular.module('myApp').controller('ProductsController', ['$scope', 'SelectorsFactory', 'TeesFactory', ProductsController]);
 
 })(window, document);
 
