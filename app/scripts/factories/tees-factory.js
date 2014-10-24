@@ -7,20 +7,38 @@ name: TeesFactory
 
   'use strict';
 
-	var TeesFactory = function(HttpService) {
+	var TeesFactory = function($q, HttpService) {
 
 		var TeesFactory = {};
+
+		/*
+		 * Private Functions
+		 */
+		function _request() {
+
+			var _deferred = $q.defer();
+			_promise = _deferred.promise;
+
+			HttpService.newRequest({
+				method: 'GET',
+				url: 'datas/product-datas.js',
+			}).success(function(datas) {
+				TeesFactory.tees = datas;
+				_deferred.resolve(TeesFactory.tees);
+			});
+
+			return _deferred.promise;
+
+		};
 
 		/*
 		 * Getters
 		 */
 		TeesFactory.getTees = function(url) {
-			return HttpService.newRequest({
-				method: 'GET',
-				url: 'datas/product-datas.js',
-			}).success(function(datas) {
-				TeesFactory.tees = datas;
-			});
+			// return a promise with datas: if tee shirts were fetched previously we return the array immediately,
+			// if tee shirts are currently fetched but not yet loaded, we return the promise (this avoid multiple requests),
+			// otherwise, we wait for the request result
+			return $q.when( TeesFactory.tees || _promise || _request() ); 
 		};
 
 		TeesFactory.getTee = function(id) {
@@ -56,12 +74,20 @@ name: TeesFactory
 			return _filtered;
 		};
 
-		TeesFactory.tees = [];
+		/*
+		 * Private vars
+		 */
+		var _promise = null;
+
+		/*
+		 * Public vars
+		 */
+		TeesFactory.tees = null;
 
 		return TeesFactory;
 
 	};
 
-	angular.module('myApp').factory('TeesFactory', ['HttpService', TeesFactory]);
+	angular.module('myApp').factory('TeesFactory', ['$q','HttpService', TeesFactory]);
 
 })(window, document);

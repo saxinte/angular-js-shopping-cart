@@ -27,12 +27,7 @@ name: TeeShirtController
 		});
 
 		var _init = function() {
-			if(TeesFactory.tees.length){
-				_initTeeShirt();
-				_hideLoader(0);
-			}else {
-				TeesFactory.getTees().error(_onRequestError).then(_onRequestSuccess);
-			}
+			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError);
 		};
 
 		/*

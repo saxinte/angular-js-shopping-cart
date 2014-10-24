@@ -7,7 +7,7 @@ name: ProductsController
 
 	'use strict';
 
-	var ProductsController = function($scope, $timeout, SelectorsFactory, TeesFactory) {
+	var ProductsController = function($scope, $q, $timeout, SelectorsFactory, TeesFactory) {
 
 		/*
 		 * Request Handlers
@@ -35,14 +35,7 @@ name: ProductsController
 		 * Initialization
 		 */
 		var _init = function() {
-
-			if(TeesFactory.tees.length){
-				_updateModels();
-				_hideLoader(0);
-			}else {
-				TeesFactory.getTees().error(_onRequestError).then(_onRequestSuccess);
-			}
-
+			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError);
 		};
 
 		var _updateModels = angular.bind(this, function() {
@@ -66,7 +59,7 @@ name: ProductsController
 
 	};
 
-	angular.module('myApp').controller('ProductsController', ['$scope','$timeout', 'SelectorsFactory', 'TeesFactory', ProductsController]);
+	angular.module('myApp').controller('ProductsController', ['$scope','$q','$timeout', 'SelectorsFactory', 'TeesFactory', ProductsController]);
 
 })(window, document);
 
