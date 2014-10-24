@@ -25,7 +25,6 @@ name: SelectorsFactory
 			return _convertNodeListToArray( doc.querySelectorAll(selectors) );
 		};
 
-
 		return SelectorsFactory;
 
 	};

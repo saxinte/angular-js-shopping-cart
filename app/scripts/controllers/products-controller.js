@@ -13,7 +13,7 @@ name: ProductsController
 		 * Request Handlers
 		 */
 		var _onRequestSuccess = function() {
-			_hideLoader(300);
+			_hideLoader(250);
 			_updateModels();
 		};
 

@@ -27,6 +27,9 @@ name: RouteConfig
 			controller: 'ShoppingListController',
 			controllerAs: 'ShoppingList'
 		})
+		.when('/checkout', {
+			templateUrl: 'views/checkout-view.html'
+		})
 		.otherwise({
 			redirectTo: '/home'
 		});

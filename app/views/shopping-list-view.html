@@ -6,8 +6,8 @@
 			</div>
 			<div class="panel-body">
 				<p><b>Please Note:</b> American Apparel reserves the right to cancel any order and refund your order in full at any time.</p>
-				<p ng-hide="ShoppingList.items">Your cart is empty.</p>
-				<div class="panel panel-success shopping-list" ng-show="ShoppingList.items">
+				<p ng-show="!ShoppingList.items.length">Your cart is empty.</p>
+				<div class="panel panel-success shopping-list" ng-show="ShoppingList.items.length">
 					<div class="panel-heading">Items: {{ShoppingList.items.length}}</div>
 					<table class="table">
 						<thead>
@@ -48,7 +48,7 @@
 								<td></td>
 								<td></td>
 								<td colspan="2">
-									<button class="btn btn-success" role="button">Checkout</button>
+									<a href="#/checkout" class="btn btn-success">Checkout</a>
 								</td>
 							</tr>
 						</tbody>
