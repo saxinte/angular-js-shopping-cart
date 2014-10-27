@@ -9,7 +9,7 @@ name: teeDirective
 
 	var teeDirective = function() {
 		return {
-			restrict: 'A',
+			restrict: 'E',
 			replace: true,
 			templateUrl: 'templates/tee-thumbnail.html'
 		};

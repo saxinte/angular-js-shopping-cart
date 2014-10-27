@@ -4,6 +4,36 @@ body {
 a:hover {
 	text-decoration: none;
 }
+.is-loading:before {
+	position:fixed;
+	display:block;
+	content:"";
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color:rgba(0,0,0,0.7);
+	z-index:5;
+}
+.is-loading:after {
+	position:fixed;
+	display:block;
+	content:"Loading datas...";
+	top:20px;
+	left:50%;
+	text-align:left;
+	font-size:18px;
+	padding:10px 90px 10px 10px;
+	color:#428BCA;
+	border-radius:3px;
+	background:url('../images/loader.gif') right 10px center no-repeat #FFF;
+	z-index:6;
+	-webkit-transform: translate(-50%);
+	   -moz-transform: translate(-50%);
+	    -ms-transform: translate(-50%);
+	     -o-transform: translate(-50%);
+	        transform: translate(-50%);
+}
 .page-header {
 	margin-top:20px;
 	padding-bottom: 0;
@@ -87,21 +117,6 @@ a:hover {
 }
 .tees-list .tee-item:nth-of-type(4n+1) {
 	clear:left;
-}
-.is-loading:after {
-	position:absolute;
-	display:block;
-	content:"Loading datas...";
-	text-align:center;
-	font-size:34px;
-	padding-top:50px;
-	color:#428BCA;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	background:url('../images/loader.gif') center 120px no-repeat #FFF;
-	z-index:1;
 }
 .shop-cart {
 	float:right;

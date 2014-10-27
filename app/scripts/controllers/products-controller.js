@@ -22,17 +22,10 @@ name: ProductsController
 		});
 
 		/*
-		 * Loader
-         */
-		var _hideLoader = angular.bind(this, function() {
-			this.hideLoader = true;
-		});
-
-		/*
 		 * Initialization
 		 */
 		var _init = function() {
-			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError).finally(_hideLoader);
+			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError);
 		};
 
 		// default models value
@@ -45,13 +38,13 @@ name: ProductsController
 		this.tees = [];
 		this.teeSizes = [];
 		this.errorMessage = false;
-		this.hideLoader = false;
 
 		_init();
 
 	};
 
 	angular.module('myApp').controller('ProductsController', ['$scope', 'SelectorsFactory', 'TeesFactory', ProductsController]);
+
 
 })(window, document);
 

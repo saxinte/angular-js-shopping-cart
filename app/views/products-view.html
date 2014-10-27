@@ -77,9 +77,9 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="tees-list is-loading" ng-class="{'is-loading':!Products.hideLoader}">
+			<div class="tees-list">
 				<div class="tee-item" ng-repeat="tee in Products.tees | orderBy:'name' | TeeSizesFilter:Products.sizeFilter | TeePricesFilter:Products.priceFilter | filter:queryFilter">
-					<span tee-directive></span>
+					<tee-directive></tee-directive>
 				</div>
 			</div>
 		</div>

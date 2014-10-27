@@ -7,7 +7,7 @@ name: TeesFactory
 
   'use strict';
 
-	var TeesFactory = function($q, HttpService) {
+	var TeesFactory = function($rootScope, $q, HttpService) {
 
 		var TeesFactory = {};
 
@@ -19,12 +19,16 @@ name: TeesFactory
 			var _deferred = $q.defer();
 			_promise = _deferred.promise;
 
+			$rootScope.$emit('loadStart');
+
 			HttpService.newRequest({
 				method: 'GET',
 				url: 'datas/product-datas.js',
 			}).success(function(datas) {
 				TeesFactory.tees = datas;
 				_deferred.resolve(TeesFactory.tees);
+			}).finally(function() {
+				$rootScope.$emit('loadComplete');
 			});
 
 			return _deferred.promise;
@@ -88,6 +92,6 @@ name: TeesFactory
 
 	};
 
-	angular.module('myApp').factory('TeesFactory', ['$q','HttpService', TeesFactory]);
+	angular.module('myApp').factory('TeesFactory', ['$rootScope', '$q','HttpService', TeesFactory]);
 
 })(window, document);

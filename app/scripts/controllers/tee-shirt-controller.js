@@ -21,17 +21,10 @@ name: TeeShirtController
 		});
 
 		/*
-		 * Loader
-         */
-		var _hideLoader = angular.bind(this, function() {
-			this.hideLoader = true;
-		});
-
-		/*
 		 * Initialization
          */
 		var _init = function() {
-			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError).finally(_hideLoader);
+			TeesFactory.getTees().then(_onRequestSuccess, _onRequestError);
 		};
 
 		this.addItem = function(item, size, color) {
@@ -54,7 +47,6 @@ name: TeeShirtController
 		this.colorChoice = $routeParams.teeShirtColor;
 
 		// set default model values
-		this.hideLoader = false;
 		this.errorMessage = false;
 		this.teeShirt = {};
 		
