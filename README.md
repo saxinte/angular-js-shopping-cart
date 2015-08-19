@@ -1,4 +1,4 @@
-angular-js-app
+angular-js-shopping-cart
 =================
 
 spare time - playing with AngularJS.
