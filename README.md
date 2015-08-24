@@ -9,6 +9,8 @@ This app is a tee shirt shopping cart app, it provide a tee-shirts list that can
 ## How to install
 Unzip the project content on a HTTP server (like apache) and open `index.html` from `app/` file.
 
+## Screenshots
+
 ![alt text](http://www.apixelife.com/github/angular-js-shopping-cart/home.png "ReactJS Database Screenshot")
 
 ![alt text](http://www.apixelife.com/github/angular-js-shopping-cart/tee-shirt.png "ReactJS Database Screenshot")
