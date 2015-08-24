@@ -1,5 +1,5 @@
 {
-  "name": "angularjs-project",
+  "name": "angular-js-shopping-cart",
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.5",
